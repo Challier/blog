@@ -1,115 +1,17 @@
-<!DOCTYPE html>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-    <title>Home | Victor Challier</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="RhBlJPICVQxSNQ9HCFyE5lbbF_CgD4tF5S5ZBaRy3f0" />
-    <meta name="keywords" content="Victor,Challier,hackerrank python data">
-    <meta name="description" content="
-      
-        Come visit and read about Data Sciences, Python, Machine Learning, Algorithms and Data Structures.
-      ">
-    
-        <meta property="og:image" content="/assets/images/">
-    
-    <!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Amatic+SC:700|Quicksand' rel='stylesheet' type='text/css'>-->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Amatic+SC:700' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico" type="/assets/images/image/x-icon">
-    <link rel="icon" href="favicon.ico" type="/assets/images/image/x-icon">
-    <!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css"><![endif]-->
-    <!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css"><![endif]-->
-    <link rel="canonical" href="http://localhost:4000/">
-    <link rel="alternate" type="application/rss+xml" title="Victor Challier" href="http://localhost:4000/feed.xml">
-  </head>
-
-	<body  style="background-color: #FCFCFC";>
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-<header id="header">
-  <div class="inner">
-
-    <!-- Nav -->
-      <nav>
-        <ul>
-          <li><a href="#menu" title="Menu">Menu</a></li>
-        </ul>
-      </nav>
-
-  </div>
-</header>
-
-<!-- Menu -->
-<nav id="menu">
-  <h2>Menu</h2>
-  <ul>
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-        
-        <li><a href="/" title="Home">Home</a></li>
-        
-      
-    
-      
-        
-        <li><a href="/about/" title="About">About</a></li>
-        
-      
-    
-      
-    
-  </ul>
-<center style="position:absolute; bottom:0; left: 0; padding:15%;">
-  <ul class="icons">
-            <li><a href="/feed.xml" class="icon style2 fa-rss" target="_blank"><span class="label">RSS Feed</span></a></li>
-            <li><a href="https://twitter.com/victor_challier" class="icon style2 fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-            <li><a href="https://github.com/Challier" class="icon style2 fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-            <li><a href="https://www.linkedin.com/in/victor-challier" class="icon style2 fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-            <!--<li><a href="https://www.quora.com/profile/Victor-Challier" class="icon style2 fa-quora"><span class="label">Quora</span></a></li>-->
-            <!--<li><a href="https://www.reddit.com/user/algo_ponts/" class="icon style2 fa-reddit-alien" target="_blank"><span class="label">Reddit</span></a></li>-->
-            <li><a href="https://soundcloud.com/victor-challier/" class="icon style2 fa-soundcloud" target="_blank"><span class="label">Soundcloud</span></a></li>
-            <li><a href="mailto:challier.victor@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-  </ul>
-</center>
-</nav>
-
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-              <header>
+---
+layout: default
+title: "Home"
+icon : home
+menu: main
+order: 1
+tags: hackerrank python data
+excerpt:      Come visit and read about Data Sciences, Python, Machine Learning, Algorithms and Data Structures.
+description: >
+  WELCOME TO MY DATA LAB
+---
+<header>
   <center>
-	 <h1 class="main-title">WELCOME TO MY DATA LAB
-</h1>
+	 <h1 class="main-title">{{ page.description }}</h1>
   </center>
 </header>
 <section>
@@ -117,224 +19,56 @@
         
         <div class="filter-button-group">
             <div class="button no-border default all filter" data-filter=".nothing">All</div>
-            
-            
-            <div class="button no-border codingpro filter on" data-filter=".codingpro">
-                 
+            {% assign categories = site.categories | sort: categories  %}
+            {% for category in categories %}
+            <div class="button no-border {{ category | first }} filter on" data-filter=".{{ category | first }}">
+                {% if category contains 'algorithm' %} 
+                  Algorithms &amp; Data Structures
+                {% elsif category contains 'codingpro' %} 
                   Coding Interviews
-                
-            </div>
-            
-            <div class="button no-border data_sciences filter on" data-filter=".data_sciences">
-                 
+                {% elsif category contains 'data_sciences' %} 
                   Data Sciences
-                
+                {% else %}
+                  {{ category | first }}
+                {% endif %}
             </div>
-            
-            <div class="button no-border general filter on" data-filter=".general">
-                
-                  general
-                
-            </div>
-            
+            {% endfor %}
             <div class="button no-border default all_none filter" data-filter=".all_none">None</div>
         </div>
     </center>
 </section>
 <section class="tiles">
 
-  
-  
+  {% for post in site.posts limit:24 %}
+  {% if post.menu == 'main' %}
 
-      <article class="article data_sciences Reddit Comment Analysis" >
+      <article class="article {{ post.class }} {{ post.title }}" >
         <span class="image">
-          <img src="/assets/images/White_square.png" alt="">
+          <img src="{{ "/assets/images/White_square.png" | prepend: site.baseurl }}" alt="">
         </span>
-        <a class = "up" href="/reddit-NLP/" title="Reddit Comment Analysis" style="height:60%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('/assets/images/reddit_thumbnail.jpg'); background-size: cover;background-position: center; ">
+        <a class = "up" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" style="height:33%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('{{ post.thumbnail-image | prepend: site.baseurl }}'); background-size: cover;background-position: center; ">
         </a>
-        <a class = "down" href="/reddit-NLP/" title="Reddit Comment Analysis" style="height:40%; position: absolute; bottom: 0 !important;">
-          <!--<span style="font-weight:300;">
-                  
-                </span>-->
-          <h4 style="font-weight:400;">Graph Theory & Reddit Comments</h4>
-            <p>Given a set of integers and another integer k, calculate the size of the largest non-divisible subset.
-</p>
-          <span style="text-align: right bottom;">
-              
-              Feb 21, 2017</span>
-        </a>
-      </article>
-
-
-    
-    
-  
-
-      <article class="article codingpro Non-Divisible Subsets" >
-        <span class="image">
-          <img src="/assets/images/White_square.png" alt="">
-        </span>
-        <a class = "up" href="/divisible-subset/" title="Non-Divisible Subsets" style="height:60%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('/assets/images/ensemble_thumbnail.jpg'); background-size: cover;background-position: center; ">
-        </a>
-        <a class = "down" href="/divisible-subset/" title="Non-Divisible Subsets" style="height:40%; position: absolute; bottom: 0 !important;">
-          <!--<span style="font-weight:300;"> 
+        <a class = "down" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}" style="height:67%; position: absolute; bottom: 0 !important;">
+          <!--<span style="font-weight:300;">{% if post.class contains 'algorithm' %} 
+                  Algorithms &amp; Data Structures
+                {% elsif post.class contains 'codingpro' %} 
                   Coding Interviews
-                </span>-->
-          <h4 style="font-weight:400;">Non Divisible Subsets</h4>
-            <p>Given a set of integers and another integer k, calculate the size of the largest non-divisible subset.
-</p>
-          <span style="text-align: right bottom;">
-              
-              Feb 21, 2017</span>
+                {% else %}
+                  {{ post.class | first }}
+                {% endif %}</span>-->
+          <h4 style="font-weight:400; position: absolute; top: 1.5em !important; left: 1.5em !important; padding: 0 !important; margin:0 !important;">{{ post.post_title }}</h4>
+            <div style="padding: 0 !important; margin:0 !important;">{{ post.description }}</div>
+          <span style="position: absolute; bottom: 1.5em !important; right: 1.5em !important;">
+              {% if post.update contains 'yes' %}
+              Last update on
+              {% endif %}
+              {{ post.date | date: "%b %-d, %Y" }}</span>
         </a>
       </article>
 
 
-    
-    
-  
-
-      <article class="article codingpro Simple Problems" >
-        <span class="image">
-          <img src="/assets/images/White_square.png" alt="">
-        </span>
-        <a class = "up" href="/simple-problems/" title="Simple Problems" style="height:60%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('/assets/images/interview_thumbnail.jpg'); background-size: cover;background-position: center; ">
-        </a>
-        <a class = "down" href="/simple-problems/" title="Simple Problems" style="height:40%; position: absolute; bottom: 0 !important;">
-          <!--<span style="font-weight:300;"> 
-                  Coding Interviews
-                </span>-->
-          <h4 style="font-weight:400;">Cracking the Interview<br/>Short questions to know by heart</h4>
-            <p>For those who don't look good enough to get an offer right away, this article includes various easy problems. The goal is to decompose the solving steps and manipulate simple data structures. Good luck if you're interviewing soon!
-</p>
-          <span style="text-align: right bottom;">
-              
-              Feb 20, 2017</span>
-        </a>
-      </article>
-
-
-    
-    
-  
-
-      <article class="article codingpro Making Anagrams" >
-        <span class="image">
-          <img src="/assets/images/White_square.png" alt="">
-        </span>
-        <a class = "up" href="/making-anagrams/" title="Making Anagrams" style="height:60%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('/assets/images/anagram_thumbnail.jpg'); background-size: cover;background-position: center; ">
-        </a>
-        <a class = "down" href="/making-anagrams/" title="Making Anagrams" style="height:40%; position: absolute; bottom: 0 !important;">
-          <!--<span style="font-weight:300;"> 
-                  Coding Interviews
-                </span>-->
-          <h4 style="font-weight:400;">Cracking the Interview : Making Anagrams</h4>
-            <p>How many characters do you need to remove to make two strings anagrams of each other? Solution using a dictionary.
-</p>
-          <span style="text-align: right bottom;">
-              
-              Feb 20, 2017</span>
-        </a>
-      </article>
-
-
-    
-    
-  
-
-      <article class="article general First Post!" >
-        <span class="image">
-          <img src="/assets/images/White_square.png" alt="">
-        </span>
-        <a class = "up" href="/first_post/" title="First Post!" style="height:60%; position: absolute; top: 0 !important; overflow: hidden; background-image: url('/assets/images/first_thumbnail.jpg'); background-size: cover;background-position: center; ">
-        </a>
-        <a class = "down" href="/first_post/" title="First Post!" style="height:40%; position: absolute; bottom: 0 !important;">
-          <!--<span style="font-weight:300;">
-                  
-                </span>-->
-          <h4 style="font-weight:400;">First Post!</h4>
-            <p>Looks like it works so far.
-</p>
-          <span style="text-align: right bottom;">
-              
-              Feb 19, 2017</span>
-        </a>
-      </article>
-
-
-    
-    
+    {% endif %}
+    {% endfor %}
 
 </section>
 
-
-
-						</div>
-					</div>
-
-				<!-- Footer -->
-          <footer id="footer">
-              <!-- <section>
-                <h2>Get in touch</h2>
-                <form method="post" action="#">
-                  <div class="field half first">
-                    <input type="text" name="name" id="name" placeholder="Name" />
-                  </div>
-                  <div class="field half">
-                    <input type="email" name="email" id="email" placeholder="Email" />
-                  </div>
-                  <div class="field">
-                    <textarea name="message" id="message" placeholder="Message"></textarea>
-                  </div>
-                  <ul class="actions">
-                    <li><input type="submit" value="Send" class="special" /></li>
-                  </ul>
-                </form>
-              </section> -->
-              <center>
-                <h4>RSS Feed and Social Media</h4>
-                <ul class="icons">
-                  <li><a href="/feed.xml" class="icon style2 fa-rss" target="_blank"><span class="label">RSS Feed</span></a></li>
-                  <li><a href="https://twitter.com/victor_challier" class="icon style2 fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-                  <li><a href="https://github.com/Challier" class="icon style2 fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-                  <li><a href="https://www.linkedin.com/in/victor-challier" class="icon style2 fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-                  <!--<li><a href="https://www.quora.com/profile/Victor-Challier" class="icon style2 fa-quora"><span class="label">Quora</span></a></li>-->
-                  <!--<li><a href="https://www.reddit.com/user/algo_ponts/" class="icon style2 fa-reddit-alien" target="_blank"><span class="label">Reddit</span></a></li>-->
-                  <li><a href="https://soundcloud.com/victor-challier/" class="icon style2 fa-soundcloud" target="_blank"><span class="label">Soundcloud</span></a></li>
-                  <li><a href="mailto:challier.victor@gmail.com" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-              </ul>
-              </center>
-              <div class="inner">
-              <ul class="copyright">
-                <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net" title="HTML5 UP" target="_blank">HTML5 UP</a></li>
-                <li>subscribe <a href="/feed.xml">via RSS</a></li>
-              </ul>
-            </div>
-          </footer>
-
-
-			</div>
-
-		<!-- Scripts -->
-<script src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/skel.min.js"></script>
-<script src="/assets/js/util.js"></script>
-<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
-<script src="/assets/js/main.js"></script>
-<script src="/assets/js/CTM_script.js"></script>
-<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-92004027-1', 'auto');
-	  ga('send', 'pageview');
-
-</script>
-<script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.js"></script>
-<script id="dsq-count-scr" src="//challier-home.disqus.com/count.js" async></script>
-
-
-	</body>
-</html>
